@@ -5,7 +5,7 @@ import { cookies } from "next/headers";
 import { v4 as uuidv4 } from "uuid";
 
 const prisma = new PrismaClient();
-const TIME = 60000;
+const TIME = 200000;
 
 export async function POST(req: NextRequest) {
   // Get client IP properly
