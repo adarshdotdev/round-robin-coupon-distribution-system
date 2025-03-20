@@ -1,36 +1,61 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Round-Robin Coupon Distribution with Abuse Prevention
 
-## Getting Started
+## 📌 Overview
 
-First, run the development server:
+A **live web application** that distributes coupons in a **round-robin manner** while preventing abuse through **IP tracking and cookies**. Users can claim coupons **without logging in**, and safeguards are in place to prevent multiple claims within a restricted time frame.
+
+![preview](preview.png)
+
+## 🚀 Features
+
+- **Round-Robin Coupon Assignment**: Ensures fair distribution.
+- **Guest Access**: No login required.
+- **Abuse Prevention Mechanisms**:
+  - **IP Tracking**: Restricts multiple claims from the same IP.
+  - **Cookie-Based Tracking**: Prevents users from bypassing restrictions.
+- **User Feedback**: Displays claim success messages and timers for reattempts.
+- **Admin Panel**: Allows admins to add and manage coupons.
+- **Deployment Ready**: Hosted on a live server.
+
+## 🛠️ Tech Stack
+
+- **Frontend**: Next.js (TypeScript)
+- **Backend**: Next.js API Routes, Prisma ORM
+- **Database**: PostgreSQL
+- **Auth & Tracking**: Cookies & IP Address Logging
+
+## 🔧 Setup Instructions
+
+### 1️⃣ Clone the Repository
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+git clone https://github.com/adarshdotdev/your-repo.git
+cd your-repo
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### 2️⃣ Install Dependencies
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```bash
+yarn install  # or npm install
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+### 3️⃣ Set Up Environment Variables
 
-## Learn More
+Create a `.env` file in the root directory and add the following:
 
-To learn more about Next.js, take a look at the following resources:
+```
+DATABASE_URL=postgresql://user:password@localhost:5432/db_name
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+### 4️⃣ Apply Prisma Migrations
 
-## Deploy on Vercel
+```bash
+npx prisma migrate dev --name init
+```
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+### 5️⃣ Run the Development Server
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+```bash
+yarn dev  # or npm run dev
+```
